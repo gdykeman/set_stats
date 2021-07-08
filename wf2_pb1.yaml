@@ -6,6 +6,6 @@
   tasks:
     - debug:
         msg: "First Playbook in Workflow 2..."
-    - set_fact:
+    - set_stats:
         data:
           fact_2: "This is from WF2"
