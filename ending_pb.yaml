@@ -6,3 +6,7 @@
     - name: display generated fact
       debug:
         msg: "I can still call on the generated fact which is: {{ created_fact }}"
+
+    - name: display wf2 fact
+      debug:
+        msg: "Fact from Nested WF is {{ fact_2 }}"
