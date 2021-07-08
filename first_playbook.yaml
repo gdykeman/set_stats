@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - name: generate a new fact
+      set_stats:
+        data:
+          created_fact: "I am from the first playbook"

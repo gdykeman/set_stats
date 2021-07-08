@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - name: display generated fact
+      debug:
+        msg: "{{ created_fact }}"

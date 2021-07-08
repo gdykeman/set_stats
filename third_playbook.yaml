@@ -1,0 +1,40 @@
+---
+- name: test vars
+  hosts: localhost
+  gather_facts: no
+
+  vars:
+    support_os: {}
+      # rhel:
+      #   include: yes
+      #   count: 1
+      #   instance_type: "t2.medium"
+      # windows:
+      #   include: yes
+      #   count: 1
+      #   instance_type: "t2.medium"
+
+    tower_list:
+      - rhel
+      - windows
+
+  # Yes to RHEL or no
+  # RHEL COUNT <integer>
+
+  tasks:
+    - debug:
+        msg: "{{ tower_os_rhel }} and {{tower_rhel_count }}"
+    # - set_fact:
+    #     support_os: "{{ support_os|combine(tower_os_rhel, recursive=True) }}"
+    - set_fact:
+        support_os: "{{ support_os|combine({tower_os_rhel: {'count': tower_rhel_count}}, recursive=True) }}"
+    - set_fact:
+        support_os: "{{ support_os|combine({tower_os_rhel: {'instance_type': tower_instance_type}}, recursive=True) }}"
+
+
+    - debug:
+        msg: "{{ support_os}}"
+    # - debug:
+    #     msg: "{{ item.key }}"
+    #   when: support_os[item.value['include']] == 'yes'
+    #   loop: "{{ support_os | dict2items }}"
