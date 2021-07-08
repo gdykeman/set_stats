@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - debug:
+        msg: "Starting Workflow 1 - Playbook 1 and setting a fact - RedHat Ansible for var created_fact"
+
+    - name: generate a new fact
+      set_stats:
+        data:
+          created_fact: "RedHat Ansible"
