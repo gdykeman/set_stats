@@ -5,4 +5,4 @@
   tasks:
     - name: display generated fact
       debug:
-        msg: "I am simply outputting the variable from Workflow 1 - Playbook 1: {{ created_fact }}"
+        msg: "I can still call on the generated fact which is: {{ created_fact }}"
